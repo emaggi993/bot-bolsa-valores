@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QWidget" name="MainWindow">
+ <class>UnionWindow</class>
+ <widget class="QWidget" name="UnionWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -257,20 +257,17 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QFrame" name="botones">
+              <widget class="QFrame" name="frame_2">
                <property name="geometry">
                 <rect>
-                 <x>270</x>
-                 <y>40</y>
-                 <width>300</width>
+                 <x>190</x>
+                 <y>20</y>
+                 <width>481</width>
                  <height>131</height>
                 </rect>
                </property>
-               <property name="minimumSize">
-                <size>
-                 <width>300</width>
-                 <height>0</height>
-                </size>
+               <property name="styleSheet">
+                <string notr="true">background-color: #fff;</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -279,41 +276,87 @@
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item>
-                 <widget class="QPushButton" name="BTNDescarga">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>30</height>
-                   </size>
-                  </property>
+                <item alignment="Qt::AlignHCenter">
+                 <widget class="QLabel" name="label_3">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(80, 27, 85);
-color: rgb(251, 186, 0);</string>
+                   <string notr="true">
+color: rgb(80, 30, 83)</string>
                   </property>
                   <property name="text">
-                   <string>Descargar archivos</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Seleccionar carpeta con archivos de la Bolsa de Valores&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="BTNUnir">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>30</height>
-                   </size>
+                 <widget class="QFrame" name="frame">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
                   </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(80, 27, 85);
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QFormLayout" name="formLayout">
+                   <item row="0" column="0">
+                    <widget class="QLineEdit" name="LESeleccionarCarpeta">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="BTNSeleccionar">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(80, 27, 85);
 color: rgb(251, 186, 0);</string>
-                  </property>
-                  <property name="text">
-                   <string>Unir archivos</string>
-                  </property>
+                     </property>
+                     <property name="text">
+                      <string>Seleccionar</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
+              </widget>
+              <widget class="QFrame" name="botones">
+               <property name="geometry">
+                <rect>
+                 <x>180</x>
+                 <y>180</y>
+                 <width>491</width>
+                 <height>91</height>
+                </rect>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="QPushButton" name="BTNIniciar">
+                <property name="geometry">
+                 <rect>
+                  <x>9</x>
+                  <y>22</y>
+                  <width>471</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(80, 27, 85);
+color: rgb(251, 186, 0);</string>
+                </property>
+                <property name="text">
+                 <string>Iniciar</string>
+                </property>
+               </widget>
               </widget>
               <widget class="QFrame" name="footer">
                <property name="geometry">
@@ -377,6 +420,13 @@ color: rgb(251, 186, 0);</string>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item>
+                    <widget class="QProgressBar" name="PBEstado">
+                     <property name="value">
+                      <number>0</number>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>

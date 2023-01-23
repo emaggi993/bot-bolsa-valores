@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_window.ui'
+## Form generated from reading UI file 'union_window.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.1
 ##
@@ -15,21 +15,22 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QToolButton,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QProgressBar, QPushButton,
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 
-class MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1014, 443)
-        MainWindow.setStyleSheet(u"border-radius: 5px;")
-        self.verticalLayout = QVBoxLayout(MainWindow)
+class UnionWindow(object):
+    def setupUi(self, UnionWindow):
+        if not UnionWindow.objectName():
+            UnionWindow.setObjectName(u"UnionWindow")
+        UnionWindow.resize(1014, 443)
+        UnionWindow.setStyleSheet(u"border-radius: 5px;")
+        self.verticalLayout = QVBoxLayout(UnionWindow)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.central_frame = QFrame(MainWindow)
+        self.central_frame = QFrame(UnionWindow)
         self.central_frame.setObjectName(u"central_frame")
         self.central_frame.setFrameShape(QFrame.StyledPanel)
         self.central_frame.setFrameShadow(QFrame.Raised)
@@ -112,30 +113,54 @@ class MainWindow(object):
         self.action_bar_frame_2.setMinimumSize(QSize(0, 39))
         self.action_bar_frame_2.setFrameShape(QFrame.StyledPanel)
         self.action_bar_frame_2.setFrameShadow(QFrame.Raised)
+        self.frame_2 = QFrame(self.action_bar_frame_2)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(190, 20, 481, 131))
+        self.frame_2.setStyleSheet(u"background-color: #fff;")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.label_3 = QLabel(self.frame_2)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"\n"
+"color: rgb(80, 30, 83)")
+
+        self.verticalLayout_4.addWidget(self.label_3, 0, Qt.AlignHCenter)
+
+        self.frame = QFrame(self.frame_2)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.formLayout = QFormLayout(self.frame)
+        self.formLayout.setObjectName(u"formLayout")
+        self.LESeleccionarCarpeta = QLineEdit(self.frame)
+        self.LESeleccionarCarpeta.setObjectName(u"LESeleccionarCarpeta")
+        self.LESeleccionarCarpeta.setMinimumSize(QSize(300, 0))
+        self.LESeleccionarCarpeta.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.LESeleccionarCarpeta)
+
+        self.BTNSeleccionar = QPushButton(self.frame)
+        self.BTNSeleccionar.setObjectName(u"BTNSeleccionar")
+        self.BTNSeleccionar.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
+"color: rgb(251, 186, 0);")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.BTNSeleccionar)
+
+
+        self.verticalLayout_4.addWidget(self.frame)
+
         self.botones = QFrame(self.action_bar_frame_2)
         self.botones.setObjectName(u"botones")
-        self.botones.setGeometry(QRect(270, 40, 300, 131))
-        self.botones.setMinimumSize(QSize(300, 0))
+        self.botones.setGeometry(QRect(180, 180, 491, 91))
         self.botones.setFrameShape(QFrame.StyledPanel)
         self.botones.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.botones)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.BTNDescarga = QPushButton(self.botones)
-        self.BTNDescarga.setObjectName(u"BTNDescarga")
-        self.BTNDescarga.setMinimumSize(QSize(0, 30))
-        self.BTNDescarga.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
+        self.BTNIniciar = QPushButton(self.botones)
+        self.BTNIniciar.setObjectName(u"BTNIniciar")
+        self.BTNIniciar.setGeometry(QRect(9, 22, 471, 31))
+        self.BTNIniciar.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
 "color: rgb(251, 186, 0);")
-
-        self.verticalLayout_4.addWidget(self.BTNDescarga)
-
-        self.BTNUnir = QPushButton(self.botones)
-        self.BTNUnir.setObjectName(u"BTNUnir")
-        self.BTNUnir.setMinimumSize(QSize(0, 30))
-        self.BTNUnir.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
-"color: rgb(251, 186, 0);")
-
-        self.verticalLayout_4.addWidget(self.BTNUnir)
-
         self.footer = QFrame(self.action_bar_frame_2)
         self.footer.setObjectName(u"footer")
         self.footer.setGeometry(QRect(-1, 280, 961, 61))
@@ -168,6 +193,12 @@ class MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
+        self.PBEstado = QProgressBar(self.progress)
+        self.PBEstado.setObjectName(u"PBEstado")
+        self.PBEstado.setValue(0)
+
+        self.horizontalLayout_3.addWidget(self.PBEstado)
+
 
         self.horizontalLayout_2.addWidget(self.progress)
 
@@ -184,20 +215,21 @@ class MainWindow(object):
         self.verticalLayout.addWidget(self.central_frame)
 
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(UnionWindow)
 
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(UnionWindow)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Form", None))
-        self.title_label.setText(QCoreApplication.translate("MainWindow", u"Bot-Bolsa de Valores de Asunci\u00f3n", None))
-        self.minimize_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.restore_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.close_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.maximize_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.BTNDescarga.setText(QCoreApplication.translate("MainWindow", u"Descargar archivos", None))
-        self.BTNUnir.setText(QCoreApplication.translate("MainWindow", u"Unir archivos", None))
+    def retranslateUi(self, UnionWindow):
+        UnionWindow.setWindowTitle(QCoreApplication.translate("UnionWindow", u"Form", None))
+        self.title_label.setText(QCoreApplication.translate("UnionWindow", u"Bot-Bolsa de Valores de Asunci\u00f3n", None))
+        self.minimize_button.setText(QCoreApplication.translate("UnionWindow", u"...", None))
+        self.restore_button.setText(QCoreApplication.translate("UnionWindow", u"...", None))
+        self.close_button.setText(QCoreApplication.translate("UnionWindow", u"...", None))
+        self.maximize_button.setText(QCoreApplication.translate("UnionWindow", u"...", None))
+        self.label_3.setText(QCoreApplication.translate("UnionWindow", u"<html><head/><body><p><span style=\" font-weight:700;\">Seleccionar carpeta con archivos de la Bolsa de Valores</span></p></body></html>", None))
+        self.BTNSeleccionar.setText(QCoreApplication.translate("UnionWindow", u"Seleccionar", None))
+        self.BTNIniciar.setText(QCoreApplication.translate("UnionWindow", u"Iniciar", None))
         self.LabelError.setText("")
     # retranslateUi
 
