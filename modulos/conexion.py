@@ -1,11 +1,6 @@
 import sqlalchemy
 import json
 
-with open("./modulos/datos_conexion.json") as file:
-	archivo = json.load(file)
-	# BD = archivo["PROD"]
-	BD = archivo["PROD"]
-
 # BD = {
 # 	"host": "192.168.0.15",
 # 	"user": "mfinversiones",
@@ -13,6 +8,9 @@ with open("./modulos/datos_conexion.json") as file:
 # 	"database": "bolban_mndev"
 # }
 def conect(database: str = None):
+	import modulos.funciones as fn
+	BD = fn.data_base_config()
+
 	import traceback
 	try:
 		host= BD['host']
@@ -20,7 +18,7 @@ def conect(database: str = None):
 		password= BD['password']
 		if database == None:
 			database= BD['database']
-		port= str(3306)
+		port= str(BD['port'])
 		# print(BD)
 		return sqlalchemy.create_engine(f'mysql+pymysql://{user}:{password}@{host}:{port}/{database}')
 	except:

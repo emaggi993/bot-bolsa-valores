@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DowloadWindow</class>
- <widget class="QWidget" name="DowloadWindow">
+ <class>ConfigWindow</class>
+ <widget class="QWidget" name="ConfigWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -263,7 +263,7 @@
                  <x>190</x>
                  <y>20</y>
                  <width>481</width>
-                 <height>131</height>
+                 <height>161</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -276,17 +276,6 @@
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item alignment="Qt::AlignHCenter">
-                 <widget class="QLabel" name="label_3">
-                  <property name="styleSheet">
-                   <string notr="true">
-color: rgb(80, 30, 83)</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Selecciona rango de fecha para descargar los registros disponibles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                 </widget>
-                </item>
                 <item>
                  <widget class="QFrame" name="frame">
                   <property name="frameShape">
@@ -296,37 +285,114 @@ color: rgb(80, 30, 83)</string>
                    <enum>QFrame::Raised</enum>
                   </property>
                   <layout class="QFormLayout" name="formLayout">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label">
+                   <item row="4" column="1">
+                    <widget class="QLineEdit" name="LEDataBase">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_5">
                      <property name="text">
-                      <string>Desde:</string>
+                      <string>Base de datos</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_6">
+                     <property name="text">
+                      <string>Puerto</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QLineEdit" name="LEPort">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QLineEdit" name="LEUser">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_2">
+                     <property name="text">
+                      <string>Usuario:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QLineEdit" name="LEPass">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_4">
+                     <property name="text">
+                      <string>Contraseña:</string>
                      </property>
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QDateEdit" name="FechaDesde">
+                    <widget class="QLabel" name="label_3">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(227, 227, 227)</string>
+                      <string notr="true">
+color: rgb(80, 30, 83)</string>
                      </property>
-                     <property name="calendarPopup">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QDateEdit" name="FechaHasta">
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(227, 227, 227)</string>
-                     </property>
-                     <property name="calendarPopup">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_2">
                      <property name="text">
-                      <string>Hasta</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Seleccionar carpeta con archivos de la Bolsa de Valores&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="LEHost">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 229, 229)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label">
+                     <property name="text">
+                      <string>Host:</string>
                      </property>
                     </widget>
                    </item>
@@ -355,7 +421,7 @@ color: rgb(80, 30, 83)</string>
                  <rect>
                   <x>9</x>
                   <y>22</y>
-                  <width>471</width>
+                  <width>230</width>
                   <height>31</height>
                  </rect>
                 </property>
@@ -364,7 +430,24 @@ color: rgb(80, 30, 83)</string>
 color: rgb(251, 186, 0);</string>
                 </property>
                 <property name="text">
-                 <string>Iniciar</string>
+                 <string>Guardar</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="BTNTest">
+                <property name="geometry">
+                 <rect>
+                  <x>260</x>
+                  <y>20</y>
+                  <width>230</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(80, 27, 85);
+color: rgb(251, 186, 0);</string>
+                </property>
+                <property name="text">
+                 <string>Test de conexión</string>
                 </property>
                </widget>
               </widget>

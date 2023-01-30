@@ -1,11 +1,1 @@
-{"TEST":{
-	"host": "192.168.0.15",
-	"user": "mfinversiones",
-	"password": "Mf_1nv3rs10n3s",
-	"database": "test"
-},"PROD": {
-	"host": "192.168.0.15",
-	"user": "mfinversiones",
-	"password": "Mf_1nv3rs10n3s",
-	"database": "bolsa_de_valores"
-}}
+{"host": "192.168.0.15", "user": "mfinversiones", "password": "Mf_1nv3rs10n3s", "database": "bolsa_de_valores", "port": "3306"}

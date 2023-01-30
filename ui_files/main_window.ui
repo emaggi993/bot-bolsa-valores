@@ -263,7 +263,7 @@
                  <x>270</x>
                  <y>40</y>
                  <width>300</width>
-                 <height>131</height>
+                 <height>161</height>
                 </rect>
                </property>
                <property name="minimumSize">
@@ -310,6 +310,23 @@ color: rgb(251, 186, 0);</string>
                   </property>
                   <property name="text">
                    <string>Unir archivos</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BTNConfiguracion">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(80, 27, 85);
+color: rgb(251, 186, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string>Configuración</string>
                   </property>
                  </widget>
                 </item>

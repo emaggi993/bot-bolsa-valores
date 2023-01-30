@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_window.ui'
+## Form generated from reading UI file 'config_windows.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.1
 ##
@@ -15,21 +15,22 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QToolButton,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QProgressBar, QPushButton,
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 
-class MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1014, 443)
-        MainWindow.setStyleSheet(u"border-radius: 5px;")
-        self.verticalLayout = QVBoxLayout(MainWindow)
+class ConfigWindow(object):
+    def setupUi(self, ConfigWindow):
+        if not ConfigWindow.objectName():
+            ConfigWindow.setObjectName(u"ConfigWindow")
+        ConfigWindow.resize(1014, 443)
+        ConfigWindow.setStyleSheet(u"border-radius: 5px;")
+        self.verticalLayout = QVBoxLayout(ConfigWindow)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.central_frame = QFrame(MainWindow)
+        self.central_frame = QFrame(ConfigWindow)
         self.central_frame.setObjectName(u"central_frame")
         self.central_frame.setFrameShape(QFrame.StyledPanel)
         self.central_frame.setFrameShadow(QFrame.Raised)
@@ -112,38 +113,105 @@ class MainWindow(object):
         self.action_bar_frame_2.setMinimumSize(QSize(0, 39))
         self.action_bar_frame_2.setFrameShape(QFrame.StyledPanel)
         self.action_bar_frame_2.setFrameShadow(QFrame.Raised)
+        self.frame_2 = QFrame(self.action_bar_frame_2)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(190, 20, 481, 161))
+        self.frame_2.setStyleSheet(u"background-color: #fff;")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.frame = QFrame(self.frame_2)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.formLayout = QFormLayout(self.frame)
+        self.formLayout.setObjectName(u"formLayout")
+        self.LEDataBase = QLineEdit(self.frame)
+        self.LEDataBase.setObjectName(u"LEDataBase")
+        self.LEDataBase.setMinimumSize(QSize(300, 15))
+        self.LEDataBase.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.LEDataBase)
+
+        self.label_5 = QLabel(self.frame)
+        self.label_5.setObjectName(u"label_5")
+
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_5)
+
+        self.label_6 = QLabel(self.frame)
+        self.label_6.setObjectName(u"label_6")
+
+        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_6)
+
+        self.LEPort = QLineEdit(self.frame)
+        self.LEPort.setObjectName(u"LEPort")
+        self.LEPort.setMinimumSize(QSize(300, 15))
+        self.LEPort.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.LEPort)
+
+        self.LEUser = QLineEdit(self.frame)
+        self.LEUser.setObjectName(u"LEUser")
+        self.LEUser.setMinimumSize(QSize(300, 15))
+        self.LEUser.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.LEUser)
+
+        self.label_2 = QLabel(self.frame)
+        self.label_2.setObjectName(u"label_2")
+
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_2)
+
+        self.LEPass = QLineEdit(self.frame)
+        self.LEPass.setObjectName(u"LEPass")
+        self.LEPass.setMinimumSize(QSize(300, 15))
+        self.LEPass.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.LEPass)
+
+        self.label_4 = QLabel(self.frame)
+        self.label_4.setObjectName(u"label_4")
+
+        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_4)
+
+        self.label_3 = QLabel(self.frame)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"\n"
+"color: rgb(80, 30, 83)")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.label_3)
+
+        self.LEHost = QLineEdit(self.frame)
+        self.LEHost.setObjectName(u"LEHost")
+        self.LEHost.setMinimumSize(QSize(300, 15))
+        self.LEHost.setStyleSheet(u"background-color: rgb(229, 229, 229)")
+
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.LEHost)
+
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label)
+
+
+        self.verticalLayout_4.addWidget(self.frame)
+
         self.botones = QFrame(self.action_bar_frame_2)
         self.botones.setObjectName(u"botones")
-        self.botones.setGeometry(QRect(270, 40, 300, 161))
-        self.botones.setMinimumSize(QSize(300, 0))
+        self.botones.setGeometry(QRect(180, 180, 491, 91))
         self.botones.setFrameShape(QFrame.StyledPanel)
         self.botones.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.botones)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.BTNDescarga = QPushButton(self.botones)
-        self.BTNDescarga.setObjectName(u"BTNDescarga")
-        self.BTNDescarga.setMinimumSize(QSize(0, 30))
-        self.BTNDescarga.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
+        self.BTNIniciar = QPushButton(self.botones)
+        self.BTNIniciar.setObjectName(u"BTNIniciar")
+        self.BTNIniciar.setGeometry(QRect(9, 22, 230, 31))
+        self.BTNIniciar.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
 "color: rgb(251, 186, 0);")
-
-        self.verticalLayout_4.addWidget(self.BTNDescarga)
-
-        self.BTNUnir = QPushButton(self.botones)
-        self.BTNUnir.setObjectName(u"BTNUnir")
-        self.BTNUnir.setMinimumSize(QSize(0, 30))
-        self.BTNUnir.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
+        self.BTNTest = QPushButton(self.botones)
+        self.BTNTest.setObjectName(u"BTNTest")
+        self.BTNTest.setGeometry(QRect(260, 20, 230, 31))
+        self.BTNTest.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
 "color: rgb(251, 186, 0);")
-
-        self.verticalLayout_4.addWidget(self.BTNUnir)
-
-        self.BTNConfiguracion = QPushButton(self.botones)
-        self.BTNConfiguracion.setObjectName(u"BTNConfiguracion")
-        self.BTNConfiguracion.setMinimumSize(QSize(0, 30))
-        self.BTNConfiguracion.setStyleSheet(u"background-color: rgb(80, 27, 85);\n"
-"color: rgb(251, 186, 0);")
-
-        self.verticalLayout_4.addWidget(self.BTNConfiguracion)
-
         self.footer = QFrame(self.action_bar_frame_2)
         self.footer.setObjectName(u"footer")
         self.footer.setGeometry(QRect(-1, 280, 961, 61))
@@ -176,6 +244,12 @@ class MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
+        self.PBEstado = QProgressBar(self.progress)
+        self.PBEstado.setObjectName(u"PBEstado")
+        self.PBEstado.setValue(0)
+
+        self.horizontalLayout_3.addWidget(self.PBEstado)
+
 
         self.horizontalLayout_2.addWidget(self.progress)
 
@@ -192,21 +266,26 @@ class MainWindow(object):
         self.verticalLayout.addWidget(self.central_frame)
 
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(ConfigWindow)
 
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(ConfigWindow)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Form", None))
-        self.title_label.setText(QCoreApplication.translate("MainWindow", u"Bot-Bolsa de Valores de Asunci\u00f3n", None))
-        self.minimize_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.restore_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.close_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.maximize_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.BTNDescarga.setText(QCoreApplication.translate("MainWindow", u"Descargar archivos", None))
-        self.BTNUnir.setText(QCoreApplication.translate("MainWindow", u"Unir archivos", None))
-        self.BTNConfiguracion.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n", None))
+    def retranslateUi(self, ConfigWindow):
+        ConfigWindow.setWindowTitle(QCoreApplication.translate("ConfigWindow", u"Form", None))
+        self.title_label.setText(QCoreApplication.translate("ConfigWindow", u"Bot-Bolsa de Valores de Asunci\u00f3n", None))
+        self.minimize_button.setText(QCoreApplication.translate("ConfigWindow", u"...", None))
+        self.restore_button.setText(QCoreApplication.translate("ConfigWindow", u"...", None))
+        self.close_button.setText(QCoreApplication.translate("ConfigWindow", u"...", None))
+        self.maximize_button.setText(QCoreApplication.translate("ConfigWindow", u"...", None))
+        self.label_5.setText(QCoreApplication.translate("ConfigWindow", u"Base de datos", None))
+        self.label_6.setText(QCoreApplication.translate("ConfigWindow", u"Puerto", None))
+        self.label_2.setText(QCoreApplication.translate("ConfigWindow", u"Usuario:", None))
+        self.label_4.setText(QCoreApplication.translate("ConfigWindow", u"Contrase\u00f1a:", None))
+        self.label_3.setText(QCoreApplication.translate("ConfigWindow", u"<html><head/><body><p><span style=\" font-weight:700;\">Seleccionar carpeta con archivos de la Bolsa de Valores</span></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("ConfigWindow", u"Host:", None))
+        self.BTNIniciar.setText(QCoreApplication.translate("ConfigWindow", u"Guardar", None))
+        self.BTNTest.setText(QCoreApplication.translate("ConfigWindow", u"Test de conexi\u00f3n", None))
         self.LabelError.setText("")
     # retranslateUi
 

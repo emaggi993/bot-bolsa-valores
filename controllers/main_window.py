@@ -4,6 +4,7 @@ from views.main_window import MainWindow
 from views.general_custom_ui import GeneralCustomUi
 from controllers.dowload_window import DownloadWindowsForm
 from controllers.union_window import UnionWindow
+from controllers.config_window import ConfigWindow
 from bs4 import BeautifulSoup
 import requests
 import wget
@@ -23,6 +24,7 @@ class MainWidowsForm(QWidget, MainWindow):
     def set_buttons(self):
         self.BTNDescarga.clicked.connect( self.descargar)
         self.BTNUnir.clicked.connect( self.union)
+        self.BTNConfiguracion.clicked.connect( self.config)
     
     def descargar(self):
         window = DownloadWindowsForm()
@@ -30,5 +32,9 @@ class MainWidowsForm(QWidget, MainWindow):
         window.show()
     def union(self):
         window = UnionWindow()
+        # window.setDataTable(resultados)
+        window.show()
+    def config(self):
+        window = ConfigWindow()
         # window.setDataTable(resultados)
         window.show()

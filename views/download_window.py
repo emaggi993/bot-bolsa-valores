@@ -142,12 +142,14 @@ class DownloadWindow(object):
         self.FechaDesde = QDateEdit(self.frame)
         self.FechaDesde.setObjectName(u"FechaDesde")
         self.FechaDesde.setStyleSheet(u"background-color: rgb(227, 227, 227)")
+        self.FechaDesde.setCalendarPopup(True)
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.FechaDesde)
 
         self.FechaHasta = QDateEdit(self.frame)
         self.FechaHasta.setObjectName(u"FechaHasta")
         self.FechaHasta.setStyleSheet(u"background-color: rgb(227, 227, 227)")
+        self.FechaHasta.setCalendarPopup(True)
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.FechaHasta)
 
