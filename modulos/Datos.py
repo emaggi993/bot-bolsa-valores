@@ -124,7 +124,7 @@ def get_data(archivo: str, sheet_name: str) -> list:
 			data.append(temp)
 		return data
 	except:
-		traceback.print_exc()
+		# traceback.print_exc()
 		try:
 			workbook = xlrd.open_workbook(archivo)
 			dataframes = []

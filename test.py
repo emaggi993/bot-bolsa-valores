@@ -31,24 +31,26 @@ def test_fecha_archivo():
     archivo= "./datos/BVA-2022-01-02.xls"
     print(fn.date_for_filename(archivo))
 def test_union():
-    carpeta= './datos/'
-    archivos = fn.listar_archivos_bva('./datos/')
+    carpeta= './datos/2023-02/'
+    archivos = fn.listar_archivos_bva('./datos/2023-02/')
+    # archivos = ['2023-02/BVA-2023-02-02.xls']
     # print(archivos)
     for archivo in archivos:
         data = Datos.get_data(carpeta + archivo, "Operaciones")
-        for index, datos in enumerate(data):
-            if index == 0:
-                fn.borrar_registro_fecha(fn.date_for_filename(archivo), "renta_fija")
-                fn.respaldar_datos(datos, "renta_fija")
-            elif index == 1:
-                fn.borrar_registro_fecha(fn.date_for_filename(archivo), "renta_variable")
-                fn.respaldar_datos(datos, "renta_variable")
-            elif index == 2:
-                fn.borrar_registro_fecha(fn.date_for_filename(archivo), "repos")
-                fn.respaldar_datos(datos, "repos")
-            elif index == 3:
-                fn.borrar_registro_fecha(fn.date_for_filename(archivo), "total_renta_detalle")
-                fn.respaldar_datos(datos, "total_renta_detalle")
+        print(data)
+        # for index, datos in enumerate(data):
+        #     if index == 0:
+        #         fn.borrar_registro_fecha(fn.date_for_filename(archivo), "renta_fija")
+        #         fn.respaldar_datos(datos, "renta_fija")
+        #     elif index == 1:
+        #         fn.borrar_registro_fecha(fn.date_for_filename(archivo), "renta_variable")
+        #         fn.respaldar_datos(datos, "renta_variable")
+        #     elif index == 2:
+        #         fn.borrar_registro_fecha(fn.date_for_filename(archivo), "repos")
+        #         fn.respaldar_datos(datos, "repos")
+        #     elif index == 3:
+        #         fn.borrar_registro_fecha(fn.date_for_filename(archivo), "total_renta_detalle")
+        #         fn.respaldar_datos(datos, "total_renta_detalle")
 if __name__=="__main__":
     test_union()
     
