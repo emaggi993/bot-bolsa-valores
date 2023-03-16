@@ -31,15 +31,20 @@ def test_fecha_archivo():
     archivo= "./datos/BVA-2022-01-02.xls"
     print(fn.date_for_filename(archivo))
 def test_union():
+    import pandas as pd
     carpeta= './datos/2023-02/'
     archivos = fn.listar_archivos_bva('./datos/2023-02/')
     # archivos = ['2023-02/BVA-2023-02-02.xls']
     # print(archivos)
+    result = pd.DataFrame()
     for archivo in archivos:
         data = Datos.get_data(carpeta + archivo, "Operaciones")
-        print(data)
-        # for index, datos in enumerate(data):
-        #     if index == 0:
+        # print(data)
+        for index, datos in enumerate(data):
+            if index == 0:
+               result=  pd.concat([result, datos])
+    print(result.shape)
+    result.to_excel("renta_fija.xlsx", index= False, sheet_name="renta_fija")
         #         fn.borrar_registro_fecha(fn.date_for_filename(archivo), "renta_fija")
         #         fn.respaldar_datos(datos, "renta_fija")
         #     elif index == 1:
