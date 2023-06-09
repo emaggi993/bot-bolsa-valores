@@ -8,6 +8,61 @@ from pandas.api.types import is_object_dtype
 
 
 def get_data(archivo: str, sheet_name: str) -> list:
+	column = [{
+		"Emisor": "Emisor",
+		"Código Emisor / Emisión": "Emisión",
+		"Código Serie": "Serie",
+		"N° de Op": "N° de Ope.",
+		"Fecha de Op": "Fecha Ope.",
+		"Tipo Instrumento": "Tipo Instrumento",
+		"Mercado": "Mercado",
+		"Fecha Vto": "Fecha Vto.",
+		"Moneda": "Moneda",
+		"Cant": "Cantidad",
+		"Tasa%": "Tasa %",
+		"Precio Anterior": "Precio Anterior",
+		"Precio": "Precio",
+		"Var": "Var.",
+		"Tipo de Cambio": "Tipo de Cambio",
+		"Volumen Operado": "Volumen Operado",
+		"Volumen Negociado en Gs": "Volumen Negociado GS"
+	}, {
+		"Emisor": "Emisor",
+		"Código Emisor / Emisión": "Emisión",
+		"Código Serie": "Serie",
+		"N° de Op": "N° de Ope.",
+		"Fecha de Op": "Fecha Ope.",
+		"Tipo Instrumento": "Tipo Instrumento",
+		"Mercado": "Mercado",
+		"Fecha Vto": "Fecha Vto.",
+		"Moneda": "Moneda",
+		"Cant": "Cantidad",
+		"Tasa%": "Tasa %",
+		"Precio Anterior": "Precio Anterior",
+		"Precio": "Precio",
+		"Var": "Var.",
+		"Tipo de Cambio": "Tipo de Cambio",
+		"Volumen Operado": "Volumen Operado",
+		"Volumen Negociado en Gs": "Volumen Negociado GS"
+	},
+		{
+		"Emisor": "Emisor",
+		"Código Emisor / Emisión": "Emisión",
+		"Código Serie": "Serie",
+		"ID Repos": "ID Repo",
+					"Fecha Ope": "Fecha Ope.",
+					"Tipo Instrumento": "Tipo Instrumento",
+					"Plazo (días)": "Plazo (Días)",
+					"Moneda": "Moneda",
+					"Cant": "Cantidad",
+					"Tasa%": "Tasa %",
+					"Precio": "Precio",
+					"Tipo Cambio": "Tipo de Cambio",
+					"Volumen Negociado en Gs": "Volumen Negociado GS"
+	},  {
+		"Tipos Renta Detalle": "Tipo de Renta",
+		"Volumen Negociado Total": "Volumen Negociado Total"
+	}]
 	try:
 		datos = pd.read_excel(archivo, sheet_name=sheet_name, header=None)
 		fecha = fn.date_for_filename(archivo)
@@ -22,61 +77,7 @@ def get_data(archivo: str, sheet_name: str) -> list:
 			datos[0] == "Tipos Renta Detalle")].index.values
 
 		data = []
-		column = [{
-			"Emisor": "Emisor",
-			"Código Emisor / Emisión": "Emisión",
-			"Código Serie": "Serie",
-			"N° de Op": "N° de Ope.",
-			"Fecha de Op": "Fecha Ope.",
-			"Tipo Instrumento": "Tipo Instrumento",
-			"Mercado": "Mercado",
-			"Fecha Vto": "Fecha Vto.",
-			"Moneda": "Moneda",
-			"Cant": "Cantidad",
-			"Tasa%": "Tasa %",
-			"Precio Anterior": "Precio Anterior",
-			"Precio": "Precio",
-			"Var": "Var.",
-			"Tipo de Cambio": "Tipo de Cambio",
-			"Volumen Operado": "Volumen Operado",
-			"Volumen Negociado en Gs": "Volumen Negociado GS"
-		}, {
-			"Emisor": "Emisor",
-			"Código Emisor / Emisión": "Emisión",
-			"Código Serie": "Serie",
-			"N° de Op": "N° de Ope.",
-			"Fecha de Op": "Fecha Ope.",
-			"Tipo Instrumento": "Tipo Instrumento",
-			"Mercado": "Mercado",
-			"Fecha Vto": "Fecha Vto.",
-			"Moneda": "Moneda",
-			"Cant": "Cantidad",
-			"Tasa%": "Tasa %",
-			"Precio Anterior": "Precio Anterior",
-			"Precio": "Precio",
-			"Var": "Var.",
-			"Tipo de Cambio": "Tipo de Cambio",
-			"Volumen Operado": "Volumen Operado",
-			"Volumen Negociado en Gs": "Volumen Negociado GS"
-		},
-			{
-			"Emisor": "Emisor",
-			"Código Emisor / Emisión": "Emisión",
-			"Código Serie": "Serie",
-			"ID Repos": "ID Repo",
-			"Fecha Ope": "Fecha Ope.",
-			"Tipo Instrumento": "Tipo Instrumento",
-			"Plazo (días)": "Plazo (Días)",
-			"Moneda": "Moneda",
-			"Cant": "Cantidad",
-			"Tasa%": "Tasa %",
-			"Precio": "Precio",
-			"Tipo Cambio": "Tipo de Cambio",
-			"Volumen Negociado en Gs": "Volumen Negociado GS"
-		},  {
-			"Tipos Renta Detalle": "Tipo de Renta",
-				"Volumen Negociado Total": "Volumen Negociado Total"
-		}]
+
 		for i in range(len(index)):
 			if i == len(index) - 1:
 				temp = datos.iloc[index[i]:].copy()
@@ -84,6 +85,7 @@ def get_data(archivo: str, sheet_name: str) -> list:
 				temp.dropna(how='all', axis=1, inplace=True)
 				temp.reset_index(drop=True, inplace=True)
 				temp.columns = temp.iloc[0]
+				# temp =
 				temp = temp.iloc[1:]
 				temp.reset_index(drop=True, inplace=True)
 				temp['fecha'] = str(fecha)
@@ -120,8 +122,38 @@ def get_data(archivo: str, sheet_name: str) -> list:
 				finally:
 					print(temp['Var.'].dtype)
 				# if is_object_dtype(temp["Var."]):
+			if 'Volumen Operado' in temp.columns:
+				try:
+					temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+						float)
+				except:
+					temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+						str).str.replace(".", "")
+					temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+						str).str.replace(",", ".")
+					temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+						float)
+				finally:
+					print(temp['Volumen Operado'].dtype, "volumen operado")
+			if 'Tasa %' in temp.columns:
+
+				try:
+					temp['Tasa %'] = temp['Tasa %'].astype(float)
+				except:
+					temp['Tasa %'] = temp['Tasa %'].astype(
+						str).str.replace(".", "")
+					temp['Tasa %'] = temp['Tasa %'].astype(
+						str).str.replace(",", ".")
+					temp['Tasa %'] = temp['Tasa %'].astype(float)
+				finally:
+					print(temp['Tasa %'].dtype, "tasa")
 
 			data.append(temp)
+		# aux = []
+		# for d in data.columns:
+		# 	for c in column:
+		# 		if d in c.values():
+		# 			aux
 		return data
 	except:
 		# traceback.print_exc()
@@ -153,7 +185,49 @@ def get_data(archivo: str, sheet_name: str) -> list:
 					rf['dia'] = int(fecha.dia)
 					rf['mes'] = int(fecha.mes)
 					rf['anio'] = int(fecha.anio)
-					dataframes.append(rf)
+					temp = rf.copy()
+					if 'Var.' in temp.columns:
+						try:
+							temp['Var.'] = temp['Var.'].astype(float)
+						except:
+							temp['Var.'] = temp['Var.'].astype(
+								str).str.replace(" ", "")
+							temp['Var.'] = temp['Var.'].astype(
+								str).str.replace(",", ".")
+							temp['Var.'] = temp['Var.'].astype(
+								str).str.replace("%", "")
+							temp['Var.'] = temp['Var.'].astype(float)
+							temp['Var.'] = temp['Var.']/100
+						finally:
+							print(temp['Var.'].dtype)
+						# if is_object_dtype(temp["Var."]):
+					if 'Volumen Operado' in temp.columns:
+						try:
+							temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+								float)
+						except:
+							temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+								str).str.replace(".", "")
+							temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+								str).str.replace(",", ".")
+							temp['Volumen Operado'] = temp['Volumen Operado'].astype(
+								float)
+						finally:
+							print(temp['Volumen Operado'].dtype,
+								  "volumen operado")
+					if 'Tasa %' in temp.columns:
+
+						try:
+							temp['Tasa %'] = temp['Tasa %'].astype(float)
+						except:
+							temp['Tasa %'] = temp['Tasa %'].astype(
+								str).str.replace(".", "")
+							temp['Tasa %'] = temp['Tasa %'].astype(
+								str).str.replace(",", ".")
+							temp['Tasa %'] = temp['Tasa %'].astype(float)
+						finally:
+							print(temp['Tasa %'].dtype, "tasa")
+					dataframes.append(temp)
 					# print(index_na, rf.tail())
 				if "RENTA VARIABLE" in datos[0].to_list():
 
@@ -219,3 +293,92 @@ def get_data(archivo: str, sheet_name: str) -> list:
 		except:
 			traceback.print_exc()
 			return None
+
+
+def validar_tipos_datos(dataframe, tabla):
+	columns = {
+		"renta_fija":
+		{"Emisor":	"str",
+		 "Emisión":	"str",
+		 "Serie":	"str",
+					 "N° de Ope.":	"entero",
+					 "Fecha Ope.":	"datetime",
+		 "Tipo Instrumento":	"str",
+		 "Mercado":	"str",
+					 "Fecha Vto.":	"datetime",
+		 "Moneda":	"str",
+					 "Cantidad":	"entero",
+					 "Tasa %":	"float",
+		 "Precio Anterior":	"float",
+					 "Precio":	"float",
+					 "Var.":	"float",
+					 "Tipo de Cambio":	"entero",
+					 "Volumen Operado":	"float",
+					 "Volumen Negociado GS":	"entero",
+		 "fecha":	"str",
+					 "dia":	"entero",
+					 "mes":	"entero",
+					 "anio":	"entero"
+		 }, "renta_variable": {
+			"Emisor":	"str",
+			"Emisión":	"str",
+						"Serie":	"str",
+						"N° de Ope.":	"entero",
+						"Fecha Ope.":	"datetime",
+						"Tipo Instrumento":	"str",
+						"Mercado":	"str",
+						"Fecha Vto.":	"datetime",
+						"Moneda":	"str",
+						"Cantidad":	"entero",
+						"Tasa %":	"float",
+						"Precio Anterior":	"float",
+						"Precio":	"float",
+						"Var.":	"float",
+						"Tipo de Cambio":	"entero",
+						"Volumen Operado":	"float",
+						"Volumen Negociado GS":	"entero",
+						"fecha":	"str",
+						"dia":	"entero",
+						"mes":	"entero",
+						"anio":	"entero"
+		}, "repos": {
+			"Emisor":	"str",
+			"Emisión":	"str",
+						"Serie":	"str",
+						"ID Repo":	"str",
+						"Fecha Ope.":	"datetime",
+						"Tipo Instrumento":	"str",
+						"Plazo (Días)":	"entero",
+						"Moneda":	"str",
+						"Cantidad":	"entero",
+						"Tasa %":	"float",
+						"Precio":	"float",
+						"Tipo de Cambio":	"entero",
+						"Volumen Negociado GS":	"entero",
+						"fecha":	"str",
+						"dia":	"entero",
+						"mes":	"entero",
+						"anio":	"entero"
+		}, "total_renta_detalle": {
+			"Tipo de Renta":	"str",
+			"Volumen Negociado Total":	"entero",
+			"fecha":	"str",
+			"dia":	"entero",
+			"mes":	"entero",
+			"anio":	"entero"
+		}
+	}
+	
+	for col in dataframe.columns:
+		if col in columns[tabla].keys():
+			if columns[tabla][col] == "str":
+				dataframe[col] = dataframe[col].astype(str)
+			if columns[tabla][col] == "datetime":
+				dataframe[col] = pd.to_datetime(dataframe[col])
+			if columns[tabla][col] == "float":
+				dataframe[col] = dataframe[col].astype(np.dtype(float))
+			if columns[tabla][col] == "entero":
+				dataframe[col] = dataframe[col].astype(np.int64)
+	
+	dataframe = dataframe[columns[tabla].keys()]
+	return dataframe
